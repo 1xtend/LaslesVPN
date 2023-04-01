@@ -4,6 +4,7 @@
 /*===============Vars===============*/
 :root {
   --color-primary: #0b132a;
+  --color-primary-dark: #0d1025;
   --color-secondary: #4f5665;
   --color-red: #f53838;
   --color-red-hover: #f31818;
@@ -11,6 +12,7 @@
   --color-red-light: #ffecec;
   --color-green: #2fab73;
   --color-white: #fff;
+  --color-gray-light: #eeeff2;
 }
 
 /*===============Imports===============*/
@@ -104,8 +106,16 @@ h6 {
 
 /*-------------------*/
 /*===============Global styles===============*/
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Rubik", sans-serif;
+}
+body.is-fixed {
+  overflow-y: hidden;
+  position: fixed;
 }
 
 .wrapper {
@@ -136,6 +146,62 @@ body {
   font-weight: 700;
 }
 
+.text {
+  font-size: 1rem;
+  line-height: 188%;
+  color: var(--color-secondary);
+}
+.text_dark {
+  color: var(--color-primary);
+}
+.text_small {
+  font-size: 0.875rem;
+}
+.text span {
+  font-weight: 500;
+}
+
+.primary-btn {
+  font-size: 1rem;
+  line-height: 156%;
+  color: var(--color-white);
+  font-weight: 700;
+  min-height: 60px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: var(--color-red);
+  padding: 5px;
+  width: 100%;
+  max-width: 250px;
+  position: relative;
+  transition: background-color 0.2s linear;
+}
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  min-height: 60px;
+  width: 84%;
+  background-color: rgba(245, 56, 56, 0.35);
+  filter: blur(27px);
+  border-radius: 10px;
+  bottom: -25px;
+  right: 9px;
+  z-index: -1;
+}
+.primary-btn:hover {
+  background-color: var(--color-red-hover);
+}
+.primary-btn:active {
+  background-color: var(--color-red-active);
+}
+@media (max-width: 424.98px) {
+  .primary-btn {
+    max-width: 100%;
+  }
+}
+
 /*===============Header===============*/
 .header__body {
   padding: 50px 0 60px;
@@ -152,8 +218,14 @@ body {
   width: 100%;
 }
 .header__content.is-active {
-  background-color: rgba(245, 56, 56, 0.3);
+  background-color: rgba(245, 56, 56, 0.5);
   visibility: visible;
+}
+@media (max-width: 479.98px) {
+  .header__content.is-active {
+    visibility: visible;
+    background-color: transparent;
+  }
 }
 @media (max-width: 767.98px) {
   .header__content {
@@ -385,4 +457,205 @@ body {
 }
 .burger__inner::after {
   bottom: -9px;
+}
+
+/*===============Hero===============*/
+.hero {
+  padding: 33px 0 50px;
+}
+@media (max-width: 767.98px) {
+  .hero {
+    padding: 25px 0 30px;
+  }
+}
+.hero__top {
+  margin-bottom: 103px;
+}
+@media (max-width: 991.98px) {
+  .hero__top {
+    margin-bottom: 70px;
+  }
+}
+@media (max-width: 767.98px) {
+  .hero__top {
+    margin-bottom: 40px;
+  }
+}
+
+.top-hero {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767.98px) {
+  .top-hero {
+    flex-wrap: wrap;
+  }
+}
+.top-hero__content {
+  flex: 0 1 50%;
+  padding-right: 20px;
+}
+@media (max-width: 767.98px) {
+  .top-hero__content {
+    flex: 0 1 100%;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+}
+.top-hero__title {
+  font-size: 3.125rem;
+  line-height: 140%;
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+@media (max-width: 991.98px) {
+  .top-hero__title {
+    font-size: 2.625rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .top-hero__title {
+    font-size: 2.25rem;
+  }
+}
+@media (max-width: 419.98px) {
+  .top-hero__title {
+    font-size: 1.75rem;
+  }
+}
+.top-hero__title span {
+  font-weight: 700;
+}
+.top-hero__text {
+  margin-bottom: 50px;
+}
+@media (max-width: 991.98px) {
+  .top-hero__text {
+    margin-bottom: 35px;
+  }
+}
+@media (max-width: 767.98px) {
+  .top-hero__text {
+    margin-bottom: 20px;
+  }
+}
+.top-hero__media {
+  flex: 0 1 50%;
+}
+@media (max-width: 767.98px) {
+  .top-hero__media {
+    flex: 0 1 100%;
+  }
+}
+.top-hero__media img {
+  max-width: 100%;
+}
+
+.bottom-hero {
+  background: var(--color-white);
+  border-radius: 10px;
+  position: relative;
+  padding: 37px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+@media (max-width: 767.98px) {
+  .bottom-hero {
+    padding: 20px;
+  }
+}
+@media (max-width: 379.98px) {
+  .bottom-hero {
+    grid-template-columns: repeat(1, -webkit-max-content);
+    grid-template-columns: repeat(1, max-content);
+    justify-content: center;
+  }
+}
+.bottom-hero::before {
+  content: "";
+  position: absolute;
+  background-color: var(--color-primary-dark);
+  opacity: 0.06;
+  filter: blur(57px);
+  border-radius: 10px;
+  min-height: 190px;
+  width: 93%;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+
+.item-bottom-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 0;
+}
+@media (min-width: 768px) {
+  .item-bottom-hero:not(:last-child) {
+    border-right: 2px solid var(--color-gray-light);
+  }
+}
+@media (max-width: 767.98px) {
+  .item-bottom-hero {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 520.98px) and (min-width: 380px) {
+  .item-bottom-hero:last-child {
+    grid-column: 1/3;
+  }
+}
+@media (max-width: 379.98px) {
+  .item-bottom-hero {
+    justify-content: start;
+  }
+}
+.item-bottom-hero__img {
+  width: 55px;
+  height: 55px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-red-light);
+  border-radius: 50%;
+}
+.item-bottom-hero__content {
+  padding-left: 36px;
+}
+.item-bottom-hero__content > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+@media (max-width: 767.98px) {
+  .item-bottom-hero__content > *:not(:last-child) {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 767.98px) {
+  .item-bottom-hero__content {
+    padding-left: 10px;
+  }
+}
+.item-bottom-hero__num {
+  font-weight: 700;
+  font-size: 1.5625rem;
+  line-height: 120%;
+  color: var(--color-primary);
+}
+@media (max-width: 767.98px) {
+  .item-bottom-hero__num {
+    font-size: 1.25rem;
+  }
+}
+.item-bottom-hero__text {
+  font-size: 1.25rem;
+  line-height: 150%;
+  color: var(--color-secondary);
+}
+@media (max-width: 767.98px) {
+  .item-bottom-hero__text {
+    font-size: 0.875rem;
+  }
 }
