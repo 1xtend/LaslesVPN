@@ -12,6 +12,8 @@
   --color-red-light: #ffecec;
   --color-green: #2fab73;
   --color-white: #fff;
+  --color-gray: #f8f8f8;
+  --color-gray-border: #dddddd;
   --color-gray-light: #eeeff2;
 }
 /*===============Imports===============*/
@@ -64,20 +66,12 @@ body {
 .text {
   @include textPropertiesColor(16px, 30px, var(--color-secondary));
 
-  @media (max-width: 767.98px) {
-    font-size: rem(14px);
-  }
-
   &_dark {
     color: var(--color-primary);
   }
 
   &_small {
     font-size: rem(14px);
-
-    @media (max-width: 767.98px) {
-      font-size: rem(12px);
-    }
   }
 
   span {
@@ -85,10 +79,9 @@ body {
   }
 }
 
-.title {
+.primary-title {
   @include textPropertiesColor(35px, 50px, var(--color-primary));
   font-weight: 500;
-  text-align: center;
 
   @media (max-width: 991.98px) {
     font-size: rem(30px);
@@ -99,9 +92,14 @@ body {
   @media (max-width: 479.98px) {
     font-size: rem(24px);
   }
+}
 
-  &_left {
-    text-align: left;
+.secondary-title {
+  @include textPropertiesColor(18px, 30px, var(--color-primary));
+  font-weight: 500;
+
+  @media (max-width: 767.98px) {
+    font-size: rem(16px);
   }
 }
 
@@ -146,6 +144,82 @@ body {
 }
 
 .secondary-btn {
+  min-height: 45px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 62px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+
+  span {
+    transition: color 0.2s linear;
+    position: relative;
+    z-index: 2;
+    @include textPropertiesColor(16px, 19px, var(--color-red));
+    font-weight: 700;
+  }
+
+  &_header {
+    padding: 5px 44px;
+
+    span {
+      font-weight: 500;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    background-color: var(--color-red);
+    z-index: 1;
+    transition: width 0.2s linear, height 0.2s linear, background-color 0.2s linear;
+    border-radius: 50px;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-radius: 50px;
+    border: 2px solid var(--color-red);
+  }
+
+  &:hover span {
+    color: var(--color-white);
+  }
+  &:hover::before {
+    width: 200px;
+    height: 200px;
+  }
+  &:active::after {
+    border: 2px solid var(--color-red-active);
+  }
+  &:active::before {
+    background-color: var(--color-red-active);
+  }
+}
+
+.text-block {
+  text-align: center;
+
+  & > *:not(:last-child) {
+    margin-bottom: 20px;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &_left {
+    text-align: left;
+  }
 }
 
 /*===============Header===============*/
@@ -307,52 +381,6 @@ body {
 
     &:hover {
       color: var(--color-secondary);
-    }
-  }
-  &__sign-up {
-    min-height: 45px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 45px;
-    border: 1px solid var(--color-red);
-    border-radius: 50px;
-    transition: background-color 0.2s linear;
-    position: relative;
-    overflow: hidden;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      background-color: var(--color-red);
-      z-index: 1;
-      transition: width 0.2s linear, height 0.2s linear, background-color 0.2s linear;
-      border-radius: 50px;
-    }
-
-    &:hover span {
-      color: var(--color-white);
-    }
-    &:hover::before {
-      width: 200px;
-      height: 200px;
-    }
-    &:active::before {
-      background-color: var(--color-red-active);
-    }
-
-    @media (max-width: 991.98px) {
-      padding: 5px 25px;
-    }
-
-    span {
-      font-weight: 500;
-      @include textPropertiesColor(16px, 19px, var(--color-red));
-      transition: color 0.2s linear;
-      position: relative;
-      z-index: 2;
     }
   }
 }
@@ -627,12 +655,8 @@ body {
 }
 
 .content-features {
-  & > *:not(:last-child) {
+  &__text-block {
     margin-bottom: 20px;
-
-    @media (max-width: 991.98px) {
-      margin-bottom: 10px;
-    }
   }
   &__item {
     padding-left: 32px;
@@ -655,6 +679,120 @@ body {
       background: url('../images/features/features-check-icon.svg') center no-repeat;
       left: 0;
       top: 3px;
+    }
+  }
+}
+
+/*===============Pricing===============*/
+
+.pricing {
+  background-color: var(--color-gray);
+
+  &__body {
+    padding: 80px 0 75px;
+
+    @media (max-width: 991.98px) {
+      padding: 60px 0;
+    }
+    @media (max-width: 767.98px) {
+      padding: 30px 0;
+    }
+  }
+  &__text-block {
+    margin-bottom: 60px;
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: 767.98px) {
+      margin-bottom: 25px;
+    }
+  }
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    column-gap: 50px;
+    row-gap: 20px;
+
+    @media (max-width: 991.98px) {
+      column-gap: 20px;
+    }
+  }
+}
+
+.item-pricing {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 20px 50px;
+
+  @media (max-width: 991.98px) {
+    padding: 50px 20px 25px;
+  }
+  @media (max-width: 767.98px) {
+    padding: 25px 20px;
+  }
+
+  &__media {
+    margin-bottom: 30px;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 15px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+  &__content {
+    flex: 1 1 auto;
+    margin-bottom: 50px;
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 35px;
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @media (max-width: 767.98px) {
+      margin-bottom: 15px;
+    }
+  }
+  &__list {
+    & > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__item {
+    position: relative;
+    padding-left: 38px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 13px;
+      height: 9px;
+      background: url('../images/pricing/pricing-check-icon.svg') center no-repeat;
+      left: 0;
+      top: 8px;
+    }
+  }
+  &__bottom {
+    text-align: center;
+  }
+  &__price {
+    @include textPropertiesColor(25px, 30px, var(--color-primary));
+    font-weight: 500;
+    margin-bottom: 20px;
+
+    span {
+      font-weight: 400;
+      color: var(--color-secondary);
     }
   }
 }
