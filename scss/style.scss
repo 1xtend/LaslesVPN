@@ -64,16 +64,44 @@ body {
 .text {
   @include textPropertiesColor(16px, 30px, var(--color-secondary));
 
+  @media (max-width: 767.98px) {
+    font-size: rem(14px);
+  }
+
   &_dark {
     color: var(--color-primary);
   }
 
   &_small {
     font-size: rem(14px);
+
+    @media (max-width: 767.98px) {
+      font-size: rem(12px);
+    }
   }
 
   span {
     font-weight: 500;
+  }
+}
+
+.title {
+  @include textPropertiesColor(35px, 50px, var(--color-primary));
+  font-weight: 500;
+  text-align: center;
+
+  @media (max-width: 991.98px) {
+    font-size: rem(30px);
+  }
+  @media (max-width: 767.98px) {
+    font-size: rem(28px);
+  }
+  @media (max-width: 479.98px) {
+    font-size: rem(24px);
+  }
+
+  &_left {
+    text-align: left;
   }
 }
 
@@ -550,6 +578,83 @@ body {
 
     @media (max-width: 767.98px) {
       font-size: rem(14px);
+    }
+  }
+}
+
+/*===============Features===============*/
+
+.features {
+  &__body {
+    padding: 50px 0 130px;
+    display: flex;
+    align-items: flex-end;
+
+    @media (max-width: 991.98px) {
+      padding: 40px 0 90px;
+    }
+    @media (max-width: 767.98px) {
+      padding: 25px 0 40px;
+      flex-wrap: wrap;
+    }
+  }
+  &__media {
+    flex: 0 1 50%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+    }
+
+    @media (max-width: 767.98px) {
+      flex: 0 1 100%;
+      margin-bottom: 20px;
+    }
+  }
+  &__content {
+    flex: 0 1 50%;
+    max-width: 425px;
+    padding-left: 20px;
+    margin-left: auto;
+
+    @media (max-width: 767.98px) {
+      flex: 0 1 100%;
+      padding-left: 0;
+      margin: 0 auto;
+    }
+  }
+}
+
+.content-features {
+  & > *:not(:last-child) {
+    margin-bottom: 20px;
+
+    @media (max-width: 991.98px) {
+      margin-bottom: 10px;
+    }
+  }
+  &__item {
+    padding-left: 32px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @media (max-width: 991.98px) {
+        margin-bottom: 10px;
+      }
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: url('../images/features/features-check-icon.svg') center no-repeat;
+      left: 0;
+      top: 3px;
     }
   }
 }

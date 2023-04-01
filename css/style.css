@@ -151,14 +151,50 @@ body.is-fixed {
   line-height: 188%;
   color: var(--color-secondary);
 }
+@media (max-width: 767.98px) {
+  .text {
+    font-size: 0.875rem;
+  }
+}
 .text_dark {
   color: var(--color-primary);
 }
 .text_small {
   font-size: 0.875rem;
 }
+@media (max-width: 767.98px) {
+  .text_small {
+    font-size: 0.75rem;
+  }
+}
 .text span {
   font-weight: 500;
+}
+
+.title {
+  font-size: 2.1875rem;
+  line-height: 143%;
+  color: var(--color-primary);
+  font-weight: 500;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .title {
+    font-size: 1.875rem;
+  }
+}
+@media (max-width: 767.98px) {
+  .title {
+    font-size: 1.75rem;
+  }
+}
+@media (max-width: 479.98px) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+.title_left {
+  text-align: left;
 }
 
 .primary-btn {
@@ -658,4 +694,80 @@ body.is-fixed {
   .item-bottom-hero__text {
     font-size: 0.875rem;
   }
+}
+
+/*===============Features===============*/
+.features__body {
+  padding: 50px 0 130px;
+  display: flex;
+  align-items: flex-end;
+}
+@media (max-width: 991.98px) {
+  .features__body {
+    padding: 40px 0 90px;
+  }
+}
+@media (max-width: 767.98px) {
+  .features__body {
+    padding: 25px 0 40px;
+    flex-wrap: wrap;
+  }
+}
+.features__media {
+  flex: 0 1 50%;
+  display: flex;
+  justify-content: center;
+}
+.features__media img {
+  max-width: 100%;
+}
+@media (max-width: 767.98px) {
+  .features__media {
+    flex: 0 1 100%;
+    margin-bottom: 20px;
+  }
+}
+.features__content {
+  flex: 0 1 50%;
+  max-width: 425px;
+  padding-left: 20px;
+  margin-left: auto;
+}
+@media (max-width: 767.98px) {
+  .features__content {
+    flex: 0 1 100%;
+    padding-left: 0;
+    margin: 0 auto;
+  }
+}
+
+.content-features > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+@media (max-width: 991.98px) {
+  .content-features > *:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.content-features__item {
+  padding-left: 32px;
+  position: relative;
+}
+.content-features__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+@media (max-width: 991.98px) {
+  .content-features__item:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+.content-features__item::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: url("../images/features/features-check-icon.svg") center no-repeat;
+  left: 0;
+  top: 3px;
 }
