@@ -1,3 +1,4 @@
+// Navbar
 const burger = document.querySelector('.burger');
 const navbar = document.querySelector('.navbar');
 const headerContent = document.querySelector('.header__content');
@@ -31,20 +32,16 @@ burger.addEventListener('click', (e) => {
 });
 
 // Swiper
-
 const swiper = new Swiper('.swiper', {
-  // Optional parameters
   loop: false,
   slidesPerView: 'auto',
   spaceBetween: 50,
 
-  // If we need pagination
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
   },
 
-  // Navigation arrows
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
