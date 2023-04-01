@@ -798,7 +798,7 @@ body.is-fixed {
 
 /*===============Pricing===============*/
 .pricing {
-  background-color: var(--color-gray);
+  background: linear-gradient(180deg, #f8f8f8 -45.04%, rgba(248, 248, 248, 0) 88.56%);
 }
 .pricing__body {
   padding: 80px 0 75px;
@@ -985,4 +985,197 @@ body.is-fixed {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+/*===============Testimonials===============*/
+.testimonials__body {
+  padding: 63px 0 180px;
+}
+@media (max-width: 991.98px) {
+  .testimonials__body {
+    padding: 40px 0 120px;
+  }
+}
+@media (max-width: 767.98px) {
+  .testimonials__body {
+    padding: 25px 0 100px;
+  }
+}
+.testimonials__text-block {
+  max-width: 555px;
+  margin: 0 auto 60px;
+}
+@media (max-width: 991.98px) {
+  .testimonials__text-block {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .testimonials__text-block {
+    margin-bottom: 25px;
+  }
+}
+.testimonials__text-block .text-block__title {
+  max-width: 440px;
+  margin: 0 auto 20px;
+}
+
+.swiper-testimonials {
+  min-height: 230px;
+  max-height: 100%;
+  overflow: visible;
+  margin-bottom: 60px;
+}
+@media (max-width: 991.98px) {
+  .swiper-testimonials {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .swiper-testimonials {
+    margin-bottom: 25px;
+  }
+}
+.swiper-testimonials__pagination {
+  position: static;
+  display: inline-flex;
+}
+@media (max-width: 599.98px) {
+  .swiper-testimonials__pagination {
+    display: none;
+  }
+}
+
+.slide-swiper-testimonials {
+  padding: 30px;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-gray-border);
+  border-radius: 10px;
+  max-width: 400px;
+  min-height: 230px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+}
+.slide-swiper-testimonials__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.slide-swiper-testimonials__info {
+  display: flex;
+  align-items: center;
+}
+.slide-swiper-testimonials__content {
+  padding-left: 20px;
+}
+.slide-swiper-testimonials__content > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+@media (max-width: 767.98px) {
+  .slide-swiper-testimonials__content {
+    padding-left: 10px;
+  }
+}
+.slide-swiper-testimonials__title {
+  font-size: 1.125rem;
+  line-height: 100%;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+@media (max-width: 424.98px) {
+  .slide-swiper-testimonials__title {
+    font-size: 0.875rem;
+  }
+}
+.slide-swiper-testimonials__location {
+  line-height: 1;
+}
+@media (max-width: 424.98px) {
+  .slide-swiper-testimonials__location {
+    font-size: 0.75rem;
+  }
+}
+.slide-swiper-testimonials__rating {
+  display: flex;
+  align-items: center;
+}
+.slide-swiper-testimonials__num {
+  margin-right: 10px;
+  line-height: 1;
+}
+.slide-swiper-testimonials__text {
+  line-height: 24px;
+}
+@media (max-width: 424.98px) {
+  .slide-swiper-testimonials__text {
+    font-size: 0.875rem;
+  }
+}
+
+.swiper-testimonials-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.swiper-testimonials-buttons {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+}
+.swiper-testimonials-buttons__btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--color-red);
+  left: 0;
+  margin: 0;
+  transition: background-color 0.2s linear;
+}
+.swiper-testimonials-buttons__btn svg path {
+  fill: var(--color-red);
+  transition: fill 0.2s linear;
+}
+.swiper-testimonials-buttons__btn:hover {
+  background-color: var(--color-red);
+}
+.swiper-testimonials-buttons__btn:active {
+  background-color: var(--color-red-active);
+  border: 2px solid var(--color-red-active);
+}
+.swiper-testimonials-buttons__btn:hover path {
+  fill: var(--color-white);
+}
+.swiper-testimonials-buttons__btn::after {
+  display: none;
+}
+.swiper-testimonials-buttons__btn_next {
+  transform: rotate(180deg);
+}
+
+.swiper-slide-active {
+  border: 2px solid var(--color-red);
+  position: relative;
+}
+
+.swiper-pagination-bullet {
+  width: 15px;
+  height: 15px;
+  background: #dde0e4;
+  opacity: 1;
+  border-radius: 15px;
+  transition: width 0.2s linear;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--color-red);
+  width: 45px;
 }

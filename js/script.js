@@ -29,3 +29,24 @@ burger.addEventListener('click', (e) => {
     elem.addEventListener('click', inactive);
   });
 });
+
+// Swiper
+
+const swiper = new Swiper('.swiper', {
+  // Optional parameters
+  loop: false,
+  slidesPerView: 'auto',
+  spaceBetween: 50,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
